@@ -55,5 +55,6 @@ Mark tasks as completed
 
 Screenshots
 
-![App Screenshot1] (./screenshot1.png)
-![App Screenshot2] (./screenshot2.png)
+https://github.com/Erf92/todo-list/blob/main/screenshot1.png
+
+https://github.com/Erf92/todo-list/blob/main/screenshot2.png
