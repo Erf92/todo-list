@@ -34,7 +34,7 @@ function TodoBox() {
               }}
               transition={{ type: "spring", damping: 25 }}
             >
-              <TodoItem title={item.title} id={item.id} />
+              <TodoItem item={item} />
             </motion.li>
           ))
         )}
