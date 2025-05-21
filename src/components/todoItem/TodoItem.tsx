@@ -33,7 +33,7 @@ function TodoItem({ item }: ITodoItem) {
   return (
     <div className="border rounded px-3 py-2">
       {editingId === item.id ? (
-        <div className="flex justify-between items-center text-base md:text-lg gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 mt-3  justify-between items-center text-base md:text-lg">
           <input
             autoFocus
             value={editText}
