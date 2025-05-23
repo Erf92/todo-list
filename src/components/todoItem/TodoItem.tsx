@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Task, useTasksContext } from "../../context/TasksContext";
+import { useTasksContext } from "../../context/TasksContext";
+import { Task } from "../../types/task";
 import EditIcon from "../editIcon/EditIcon";
 import TrashIcon from "../trashIcon/TrashIcon";
 

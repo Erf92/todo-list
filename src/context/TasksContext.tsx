@@ -5,11 +5,8 @@ import {
   useEffect,
   useState,
 } from "react";
-
-export interface Task {
-  id: number;
-  title: string;
-}
+import { Task } from "../types/task";
+import { loadTasks, saveTasks } from "../utils/localStorage";
 
 interface TaskProvider {
   children: React.ReactNode;
@@ -27,13 +24,10 @@ export const useTasksContext = () => {
 };
 
 export const TaskProvider = ({ children }: TaskProvider) => {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    const saved = localStorage.getItem("tasks");
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [tasks, setTasks] = useState<Task[]>(loadTasks);
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    saveTasks(tasks);
   }, [tasks]);
 
   return (

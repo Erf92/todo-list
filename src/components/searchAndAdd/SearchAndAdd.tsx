@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Task, useTasksContext } from "../../context/TasksContext";
+import { useTasksContext } from "../../context/TasksContext";
+import { Task } from "../../types/task";
 
 function SearchAndAdd() {
   const { setTasks } = useTasksContext();
@@ -30,7 +31,9 @@ function SearchAndAdd() {
       />
       <button
         className="text-white font-bold py-2 px-4 rounded sm:w-auto w-full"
-        style={{background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"}}
+        style={{
+          background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+        }}
         onClick={handleAdd}
       >
         Add
