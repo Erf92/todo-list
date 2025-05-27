@@ -12,7 +12,7 @@ function SearchAndAdd() {
     const newTask: Task = {
       id: Date.now(),
       title: input.trim(),
-      competed: false,
+      completed: false,
     };
 
     setTasks((prev) => [...prev, newTask]);
