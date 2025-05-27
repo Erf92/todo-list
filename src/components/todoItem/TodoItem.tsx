@@ -3,6 +3,7 @@ import { useTasksContext } from "../../context/TasksContext";
 import { Task } from "../../types/task";
 import EditIcon from "../editIcon/EditIcon";
 import TrashIcon from "../trashIcon/TrashIcon";
+import { FaCheckDouble, FaRegCircle } from "react-icons/fa";
 
 interface ITodoItem {
   item: Task;
@@ -29,6 +30,13 @@ function TodoItem({ item }: ITodoItem) {
       )
     );
     setEditingId(null);
+  };
+
+  const toggleTaskStatus = () => {
+    const updatedTask = tasks.map((task) =>
+      task.id === item.id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTask);
   };
 
   return (
@@ -75,10 +83,32 @@ function TodoItem({ item }: ITodoItem) {
           </div>
         </div>
       ) : (
-        <div className="flex justify-between text-base md:text-lg">
-          <p>{item.title}</p>
-          <div className="flex gap-3">
-            <EditIcon onClick={() => handleEdit(item)} />
+        <div className={`flex justify-between text-base md:text-lg`}>
+          <p
+            className={`cursor-pointer ${
+              item.completed ? "line-through text-gray-400" : ""
+            }`}
+          >
+            {item.title}
+          </p>
+          <div className="flex items-center gap-3">
+            {item.completed ? (
+              <FaCheckDouble
+                className="text-green-500 cursor-pointer text-xl"
+                onClick={toggleTaskStatus}
+              />
+            ) : (
+              <FaRegCircle
+                className="text-gray-400 hover:text-green-500 cursor-pointer text-xl"
+                onClick={toggleTaskStatus}
+              />
+            )}
+            <EditIcon
+              className={`cursor-pointer ${
+                item.completed ? "opacity-30 pointer-events-none" : ""
+              }`}
+              onClick={() => handleEdit(item)}
+            />
             <TrashIcon onClick={() => handleDelete(item.id)} />
           </div>
         </div>
