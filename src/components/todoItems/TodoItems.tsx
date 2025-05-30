@@ -4,7 +4,7 @@ import TodoBox from "../todoBox/TodoBox";
 
 function TodoItems() {
   return (
-    <div className="bg-white rounded-lg p-4 w-full max-w-2xl mx-auto">
+    <div className="bg-light rounded-lg p-4 w-full max-w-2xl mx-auto dark:bg-dark">
       <Container>
         <SearchAndAdd />
         <TodoBox />

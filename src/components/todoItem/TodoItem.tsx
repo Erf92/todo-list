@@ -56,7 +56,7 @@ function TodoItem({ item }: ITodoItem) {
                 handleSave(item.id);
               }
             }}
-            className={`flex-1 px-4 py-2 text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+            className={`flex-1 px-4 py-2 text-dark rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
               !editText.trim() && "border-red-500"
             }`}
             placeholder="Edit Task"
@@ -68,7 +68,7 @@ function TodoItem({ item }: ITodoItem) {
             <button
               onClick={() => setEditingId(null)}
               disabled={!editText.trim()}
-              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors duration-200 flex items-center gap-1"
+              className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-dark rounded-lg transition-colors duration-200 flex items-center gap-1"
             >
               cancel
             </button>
@@ -86,7 +86,7 @@ function TodoItem({ item }: ITodoItem) {
         <div className={`flex justify-between text-base md:text-lg`}>
           <p
             className={`cursor-pointer ${
-              item.completed ? "line-through text-gray-400" : ""
+              item.completed ? "line-through text-gray-400" : "dark:text-white"
             }`}
           >
             {item.title}
@@ -104,7 +104,7 @@ function TodoItem({ item }: ITodoItem) {
               />
             )}
             <EditIcon
-              className={`cursor-pointer ${
+              className={`cursor-pointer dark:text-white ${
                 item.completed ? "opacity-30 pointer-events-none" : ""
               }`}
               onClick={() => handleEdit(item)}
